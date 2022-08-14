@@ -1,9 +1,9 @@
 {
   "dependencies": {
     "com.agate.mvc": {
-      "version": "file:C:/Users/ACER/OneDrive/Documents/Project Unity/MVC/Packages/com.agate.mvc",
+      "version": "file:com.agate.mvc",
       "depth": 0,
-      "source": "local",
+      "source": "embedded",
       "dependencies": {}
     },
     "com.unity.2d.animation": {

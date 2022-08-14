@@ -1,6 +1,5 @@
 {
   "dependencies": {
-    "com.agate.mvc": "file:C:/Users/ACER/OneDrive/Documents/Project Unity/MVC/Packages/com.agate.mvc",
     "com.unity.collab-proxy": "1.15.18",
     "com.unity.feature.2d": "1.0.0",
     "com.unity.ide.rider": "3.0.15",
