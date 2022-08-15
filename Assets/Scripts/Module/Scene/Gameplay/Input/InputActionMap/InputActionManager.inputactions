@@ -1,0 +1,91 @@
+{
+    "name": "InputActionManager",
+    "maps": [
+        {
+            "name": "Game",
+            "id": "b8b7af50-890f-422d-a31f-c7828d2ea7c1",
+            "actions": [
+                {
+                    "name": "Kanan",
+                    "type": "Button",
+                    "id": "f2c9ebae-3e39-4b34-899d-cdb0c1709bbe",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Kiri",
+                    "type": "Button",
+                    "id": "0afd9bf8-e17e-4408-9a87-2884c7171394",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Tembak",
+                    "type": "Button",
+                    "id": "228e558d-35f3-4ae4-be72-dcee802c66ce",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "0084e3c1-b728-497a-9a27-86ffde994fe9",
+                    "path": "<Keyboard>/rightArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KB",
+                    "action": "Kanan",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "c9fcf93e-1224-4d48-849a-565da6198608",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Kiri",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8eea436c-30b3-4a71-896a-b784fc892abc",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Tembak",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": [
+        {
+            "name": "KB",
+            "bindingGroup": "KB",
+            "devices": [
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
+}

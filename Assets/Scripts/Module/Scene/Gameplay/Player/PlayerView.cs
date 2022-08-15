@@ -30,17 +30,7 @@ namespace SpaceInvader.Module.PlayerController
             GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/ship4")[0]; ;
         }
 
-        private void Update()
-        {
-            if (Input.GetKey(KeyCode.RightArrow))
-            {
-                _movekanan.Invoke();
-            }
-            if (Input.GetKey(KeyCode.LeftArrow))
-            {
-                _movekiri.Invoke();
-            }
-        }
+
 
     }
 }

@@ -13,20 +13,18 @@ namespace SpaceInvader.Module.PlayerController
 
         }
 
-        public void movekanan() 
+
+        public void move(int x) 
         {
-            _view.transform.Translate(new Vector3(5 * Time.deltaTime, 0, 0));
+            _view.transform.Translate(new Vector3(x * Time.deltaTime, 0, 0));
         }
 
-        public void movekiri()
-        {
-            _view.transform.Translate(new Vector3(-5 * Time.deltaTime, 0, 0));
-        }
 
-        public override void SetView(PlayerView view)
+
+        /*public override void SetView(PlayerView view)
         {
             base.SetView(view);
             view.SetCallbacks(movekanan, movekiri);
-        }
+        }*/
     }
 }

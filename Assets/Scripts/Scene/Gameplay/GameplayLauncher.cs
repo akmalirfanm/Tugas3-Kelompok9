@@ -5,6 +5,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using SpaceInvader.Module.PlayerController;
+using SpaceInvader.Module.Input;
 
 namespace Kelompok9.SpaceInvader.Gameplay
 {
@@ -20,7 +21,8 @@ namespace Kelompok9.SpaceInvader.Gameplay
         protected override IController[] GetSceneDependencies()
         {
             return new IController[] {
-                new PlayerController()
+                new PlayerController(),
+                new InputController(),
             };
         }
 
