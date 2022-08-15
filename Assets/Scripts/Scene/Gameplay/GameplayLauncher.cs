@@ -4,11 +4,13 @@ using Kelompok9.SpaceInvader.Boot;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using SpaceInvader.Module.PlayerController;
 
 namespace Kelompok9.SpaceInvader.Gameplay
 {
 	public class GameplayLauncher : SceneLauncher<GameplayLauncher, GameplayView>
 	{
+        private PlayerController _PlayerController;
         public override string SceneName => "Gameplay";
         protected override IConnector[] GetSceneConnectors()
         {
@@ -17,13 +19,16 @@ namespace Kelompok9.SpaceInvader.Gameplay
 
         protected override IController[] GetSceneDependencies()
         {
-            return null;
+            return new IController[] {
+                new PlayerController()
+            };
         }
 
         protected override IEnumerator InitSceneObject()
         {
-            
+            _PlayerController.SetView(_view.PlayerView);
             yield return null;
+
         }
 
         protected override IEnumerator LaunchScene()

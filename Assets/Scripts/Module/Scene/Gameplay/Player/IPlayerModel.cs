@@ -7,6 +7,8 @@ namespace SpaceInvader.Module.PlayerController
 {
     public interface IPlayerModel : IBaseModel
     {
-        
+        public Vector2 Position { get; }
+
+
     }
 }
