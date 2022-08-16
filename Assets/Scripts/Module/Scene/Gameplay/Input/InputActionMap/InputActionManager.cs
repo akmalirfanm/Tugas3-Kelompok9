@@ -33,7 +33,7 @@ public partial class @InputActionManager : IInputActionCollection2, IDisposable
                     ""id"": ""f2c9ebae-3e39-4b34-899d-cdb0c1709bbe"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(pressPoint=1.401298E-45,behavior=2)"",
                     ""initialStateCheck"": false
                 },
                 {
@@ -60,7 +60,7 @@ public partial class @InputActionManager : IInputActionCollection2, IDisposable
                     ""name"": """",
                     ""id"": ""0084e3c1-b728-497a-9a27-86ffde994fe9"",
                     ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
+                    ""interactions"": ""Press(behavior=2)"",
                     ""processors"": """",
                     ""groups"": ""KB"",
                     ""action"": ""Kanan"",

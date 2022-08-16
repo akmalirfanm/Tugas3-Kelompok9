@@ -10,27 +10,36 @@ namespace SpaceInvader.Module.PlayerController
 {
     public class PlayerView : ObjectView<IPlayerModel>
     {
-        private UnityAction _movekanan;
-        private UnityAction _movekiri;
+        //private UnityAction _move ;
+        private Vector3 direction;
 
-        public void SetCallbacks(UnityAction movekanan, UnityAction movekiri)
-        {
-            _movekanan = movekanan;
-            _movekiri = movekiri;
+        //public void SetCallbacks(UnityAction Move,int i)
+        //{
+        //    _move = Move;
 
-        }
+
+        //}
 
         protected override void InitRenderModel(IPlayerModel model)
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/ship4")[0]; ;
+            transform.position = _model.Position;
+            GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/player1")[0]; ;
+            direction = Vector3.zero;
         }
 
         protected override void UpdateRenderModel(IPlayerModel model)
         {
-            GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/ship4")[0]; ;
+
+            GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/player1")[0];
+            direction = model.Direction;
         }
 
+        private void Update()
+        {
 
+            transform.Translate(direction *Time.deltaTime);
+
+        }
 
     }
 }

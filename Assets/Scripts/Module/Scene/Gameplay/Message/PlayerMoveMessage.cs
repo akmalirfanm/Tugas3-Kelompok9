@@ -4,11 +4,11 @@ using UnityEngine;
 
 namespace SpaceInvader.Message
 {
-    public struct PlayerMove
+    public struct PlayerMoveMessage
     {
         public int X { get; private set; }
 
-        public PlayerMove(int x)
+        public PlayerMoveMessage(int x)
         {
             X = x;
         }

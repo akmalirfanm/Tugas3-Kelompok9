@@ -12,20 +12,19 @@ namespace SpaceInvader.Module.PlayerController
 
         protected override void Connect()
         {
-             Subscribe <PlayerMove>(OnControllerMove);
+             Subscribe <PlayerMoveMessage>(OnControllerMove);
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<PlayerMove>(OnControllerMove);
+            Unsubscribe<PlayerMoveMessage>(OnControllerMove);
         }
 
-        void OnControllerMove(PlayerMove message)
+        void OnControllerMove(PlayerMoveMessage message)
         {
-            _playerController.move(message.X);
-            Debug.Log("aaaa");
+            _playerController.Onmove(message.X);
         }
-        // Start is called before the first frame update
+
 
     }
 }

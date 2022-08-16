@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
 using SpaceInvader.Message;
+using System;
 
 namespace SpaceInvader.Module.PlayerController
 {
     public class PlayerController : ObjectController<PlayerController, PlayerModel, IPlayerModel, PlayerView>
     {
-        public void OnPlayerMovement(PlayerMoveMessage message)
+
+
+        public void Onmove(int x)
         {
-
-        }
-
-
-        public void move(int x) 
-        {
-            _view.transform.Translate(new Vector3(x * Time.deltaTime, 0, 0));
+            Vector3 dir = new Vector3(x,0,0);
+            _model.Setdirection(dir);
         }
 
 

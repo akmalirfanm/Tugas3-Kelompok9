@@ -15,7 +15,9 @@ namespace Kelompok9.SpaceInvader.Gameplay
         public override string SceneName => "Gameplay";
         protected override IConnector[] GetSceneConnectors()
         {
-            return null;
+
+            return new IConnector[] {
+                new PlayerConnector() };
         }
 
         protected override IController[] GetSceneDependencies()
