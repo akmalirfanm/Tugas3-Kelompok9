@@ -9,7 +9,7 @@ namespace SpaceInvader.Module.PlayerController
     {
         public Vector3 Position { get; }
         public Vector3 Direction { get; }
-
+        public float speed { get; }
 
 
     }

@@ -12,6 +12,7 @@ namespace SpaceInvader.Module.PlayerController
     {
         //private UnityAction _move ;
         private Vector3 direction;
+        private float speed;
 
         //public void SetCallbacks(UnityAction Move,int i)
         //{
@@ -32,12 +33,20 @@ namespace SpaceInvader.Module.PlayerController
 
             GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/player1")[0];
             direction = model.Direction;
+            speed = model.speed;
         }
 
         private void Update()
         {
+            if (transform.position.x <= 7.486 && transform.position.x >= -7.486)
+            {
 
-            transform.Translate(direction *Time.deltaTime);
+                transform.Translate(direction * Time.deltaTime * speed);
+            }
+            else if (transform.position.x <= -6.4)
+            { transform.position = new Vector3(-7.485f, transform.position.y); }
+            else if (transform.position.x >= 6.4 )
+            { transform.position = new Vector3(7.485f, transform.position.y); }
 
         }
 

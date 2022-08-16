@@ -16,7 +16,7 @@ namespace SpaceInvader.Module.PlayerController
         public float MinYSpawnPoint { get; private set; } = 3.2f;
         public float MaxYSpawnPoint { get; private set; } = -0.7f;
         public Vector3 DespawnPosition { get; private set; } = new Vector3(-.2f, 0.5f, 10f);
-
+        public float speed { get; private set; } = 10f;
         public Vector3 Direction { get; private set; }
 
         private Queue<GameObject> ObstaclePool = new Queue<GameObject>();
@@ -50,5 +50,7 @@ namespace SpaceInvader.Module.PlayerController
             Direction = direction;
             SetDataAsDirty();
         }
+
+
     }
 }

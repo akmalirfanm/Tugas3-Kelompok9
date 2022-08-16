@@ -17,7 +17,7 @@ namespace SpaceInvader.Module.PlayerController
             _model.Setdirection(dir);
         }
 
-
+       
 
         /*public override void SetView(PlayerView view)
         {
