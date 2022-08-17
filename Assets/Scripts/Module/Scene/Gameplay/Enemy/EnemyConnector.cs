@@ -8,17 +8,26 @@ namespace SpaceInvader.Module.enemy
 {
     public class EnemyConnector : BaseConnector
     {
-        private EnemyController _insect;
+        //private EnemyController _insect;
+        //protected override void Connect()
+        //{
+        //    Subscribe<StartPlayMessage>(_insect.OnStartPlay);
+
+        //}
+
+        //protected override void Disconnect()
+        //{
+        //    Unsubscribe<StartPlayMessage>(_insect.OnStartPlay);
+
+        //}
         protected override void Connect()
         {
-            Subscribe<StartPlayMessage>(_insect.OnStartPlay);
-
+            throw new System.NotImplementedException();
         }
 
         protected override void Disconnect()
         {
-            Unsubscribe<StartPlayMessage>(_insect.OnStartPlay);
-
+            throw new System.NotImplementedException();
         }
     }
 }

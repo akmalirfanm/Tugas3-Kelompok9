@@ -38,15 +38,20 @@ namespace SpaceInvader.Module.PlayerController
 
         private void Update()
         {
-            if (transform.position.x <= 7.486 && transform.position.x >= -7.486)
-            {
+            float _x = transform.position.x + direction.x;
+            if (_x <= -8 || _x >= 8) return;
+            transform.Translate(direction * Time.deltaTime * speed);
 
-                transform.Translate(direction * Time.deltaTime * speed);
-            }
-            else if (transform.position.x <= -6.4)
-            { transform.position = new Vector3(-7.485f, transform.position.y); }
-            else if (transform.position.x >= 6.4 )
-            { transform.position = new Vector3(7.485f, transform.position.y); }
+
+            //if (transform.position.x <= 7.486 && transform.position.x >= -7.486)
+            //{
+
+            //    transform.Translate(direction * Time.deltaTime * speed);
+            //}
+            //else if (transform.position.x <= -6.4)
+            //{ transform.position = new Vector3(-7.485f, transform.position.y); }
+            //else if (transform.position.x >= 6.4 )
+            //{ transform.position = new Vector3(7.485f, transform.position.y); }
 
         }
 
