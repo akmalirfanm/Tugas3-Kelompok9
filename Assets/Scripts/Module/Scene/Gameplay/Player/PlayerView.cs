@@ -39,7 +39,7 @@ namespace SpaceInvader.Module.PlayerController
         private void Update()
         {
             float _x = transform.position.x + direction.x;
-            if (_x <= -8 || _x >= 8) return;
+            if (_x <= -9.3 || _x >= 9.3) return;
             transform.Translate(direction * Time.deltaTime * speed);
 
 

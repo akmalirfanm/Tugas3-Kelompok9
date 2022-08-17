@@ -9,17 +9,20 @@ namespace SpaceInvader.Module.enemy {
 public class EnemyView : ObjectView<IEnemyModel>
     {
         public float originalX { get; private set; }
+        float walkDirection = 1f;
         private UnityAction _onMove;
+        public bool canShoot;
+        public LayerMask layer;
 
         public void SetCallback(UnityAction OnMove)
         {
             _onMove = OnMove;
+
         }
 
         protected override void InitRenderModel(IEnemyModel model)
         {
-            originalX = transform.position.x;
-            Debug.Log(originalX);
+
         }
 
         protected override void UpdateRenderModel(IEnemyModel model)
@@ -29,36 +32,32 @@ public class EnemyView : ObjectView<IEnemyModel>
 
         private void Start()
         {
-
+            originalX = transform.position.x;
         }
 
         private void Update()
         {
-            _onMove.Invoke();
+            MoveEnemy();
         }
-        //private UnityAction _onMovePosition;
-        //private UnityAction _onDespawnObstacle;
 
-        //public void SetCallbacks(UnityAction onMovePosition, UnityAction onDespawnObstacle)
-        //{
-        //    _onMovePosition = onMovePosition;
-        //    _onDespawnObstacle = onDespawnObstacle;
-        //}
+        public void MoveEnemy()
+        {
+            Vector2 walkAmount = new Vector2(walkDirection * 0.5f * Time.deltaTime, 0);
 
-        //protected override void InitRenderModel(IEnemyModel model)
-        //{
-        //    transform.position = _model.Position;
-        //}
+            if (walkDirection > 0.0f && transform.position.x >= originalX + 0.5)
+            {
+                walkDirection = -1.0f;
+                transform.position = new Vector3(transform.position.x,
+                    transform.position.y - 1, transform.position.z);
+            }
+            else if (walkDirection < 0.0f && transform.transform.position.x <= originalX - 0.5)
+            {
+                walkDirection = 1.0f;
+                transform.position = new Vector3(transform.position.x,
+                    transform.position.y - 1, transform.position.z);
+            }
 
-        //protected override void UpdateRenderModel(IEnemyModel model)
-        //{
-        //    transform.position = _model.Position;
-        //}
-
-        //private void Update()
-        //{
-        //    _onMovePosition?.Invoke();
-        //    _onDespawnObstacle?.Invoke();
-        //}
+            transform.Translate(walkAmount);
+        }
     }
 }
