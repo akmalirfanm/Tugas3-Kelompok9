@@ -78,10 +78,12 @@ namespace SpaceInvader.Module.Input
         private void tembak(InputAction.CallbackContext context)
         {
             bool isOverUI = EventSystem.current.IsPointerOverGameObject();
-            if (context.performed && !isOverUI)
+            if (context.performed)
             {
                 _inputActionsManager.Game.Tembak.Enable();
                 Publish<StartPlayMessage>(new StartPlayMessage());
+                Publish<PlayerShootMessage>(new PlayerShootMessage());
+                Debug.Log("bamm");
                 
             }
         }

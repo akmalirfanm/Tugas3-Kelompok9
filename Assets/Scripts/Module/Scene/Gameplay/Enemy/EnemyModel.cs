@@ -4,7 +4,7 @@ using UnityEngine;
 using Agate.MVC.Core;
 using Agate.MVC.Base;
 
-namespace SpaceInvader.Module.enemy {
+namespace SpaceInvader.Module.Enemy {
     public class EnemyModel : BaseModel, IEnemyModel
     {
         public Vector3 Position { get; set; }
@@ -16,6 +16,7 @@ namespace SpaceInvader.Module.enemy {
         public void SetPosition(Vector3 pos)
         {
             Position = pos;
+            SetDataAsDirty();
         }
     }
 }

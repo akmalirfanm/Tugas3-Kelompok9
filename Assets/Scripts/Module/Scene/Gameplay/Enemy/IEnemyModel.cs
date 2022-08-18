@@ -5,7 +5,7 @@ using Agate.MVC.Core;
 using Agate.MVC.Base;
 
 
-namespace SpaceInvader.Module.enemy
+namespace SpaceInvader.Module.Enemy
 {
     public interface IEnemyModel : IBaseModel
     {

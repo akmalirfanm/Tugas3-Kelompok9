@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
-using SpaceInvader.Module.enemy;
+using SpaceInvader.Module.Enemy;
 
 namespace SpaceInvader.Module.Enemy
 {

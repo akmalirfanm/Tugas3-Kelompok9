@@ -5,7 +5,7 @@ using Agate.MVC.Base;
 using Agate.MVC.Core;
 //using SpaceInvader.Message;
 
-namespace SpaceInvader.Module.enemy
+namespace SpaceInvader.Module.Enemy
 {
     public class EnemyController : ObjectController<EnemyController, EnemyModel, IEnemyModel, EnemyView>
     {

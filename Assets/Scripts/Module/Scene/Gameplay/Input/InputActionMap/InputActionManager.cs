@@ -90,6 +90,34 @@ public partial class @InputActionManager : IInputActionCollection2, IDisposable
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""UI"",
+            ""id"": ""8b69288e-795b-4ce9-8374-74a7e0ad9ea9"",
+            ""actions"": [
+                {
+                    ""name"": ""Tembak"",
+                    ""type"": ""Button"",
+                    ""id"": ""b5e4b6d5-e9ad-404a-af33-737522214932"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""c9f60686-d803-43f8-b4f0-882d193aa6fa"",
+                    ""path"": ""<Mouse>/leftButton"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Tembak"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -116,6 +144,9 @@ public partial class @InputActionManager : IInputActionCollection2, IDisposable
         m_Game_Kanan = m_Game.FindAction("Kanan", throwIfNotFound: true);
         m_Game_Kiri = m_Game.FindAction("Kiri", throwIfNotFound: true);
         m_Game_Tembak = m_Game.FindAction("Tembak", throwIfNotFound: true);
+        // UI
+        m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
+        m_UI_Tembak = m_UI.FindAction("Tembak", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -220,6 +251,39 @@ public partial class @InputActionManager : IInputActionCollection2, IDisposable
         }
     }
     public GameActions @Game => new GameActions(this);
+
+    // UI
+    private readonly InputActionMap m_UI;
+    private IUIActions m_UIActionsCallbackInterface;
+    private readonly InputAction m_UI_Tembak;
+    public struct UIActions
+    {
+        private @InputActionManager m_Wrapper;
+        public UIActions(@InputActionManager wrapper) { m_Wrapper = wrapper; }
+        public InputAction @Tembak => m_Wrapper.m_UI_Tembak;
+        public InputActionMap Get() { return m_Wrapper.m_UI; }
+        public void Enable() { Get().Enable(); }
+        public void Disable() { Get().Disable(); }
+        public bool enabled => Get().enabled;
+        public static implicit operator InputActionMap(UIActions set) { return set.Get(); }
+        public void SetCallbacks(IUIActions instance)
+        {
+            if (m_Wrapper.m_UIActionsCallbackInterface != null)
+            {
+                @Tembak.started -= m_Wrapper.m_UIActionsCallbackInterface.OnTembak;
+                @Tembak.performed -= m_Wrapper.m_UIActionsCallbackInterface.OnTembak;
+                @Tembak.canceled -= m_Wrapper.m_UIActionsCallbackInterface.OnTembak;
+            }
+            m_Wrapper.m_UIActionsCallbackInterface = instance;
+            if (instance != null)
+            {
+                @Tembak.started += instance.OnTembak;
+                @Tembak.performed += instance.OnTembak;
+                @Tembak.canceled += instance.OnTembak;
+            }
+        }
+    }
+    public UIActions @UI => new UIActions(this);
     private int m_KBSchemeIndex = -1;
     public InputControlScheme KBScheme
     {
@@ -233,6 +297,10 @@ public partial class @InputActionManager : IInputActionCollection2, IDisposable
     {
         void OnKanan(InputAction.CallbackContext context);
         void OnKiri(InputAction.CallbackContext context);
+        void OnTembak(InputAction.CallbackContext context);
+    }
+    public interface IUIActions
+    {
         void OnTembak(InputAction.CallbackContext context);
     }
 }

@@ -6,7 +6,6 @@ using Agate.MVC.Core;
 using SpaceInvader.Module.Enemy;
 using System;
 using SpaceInvader.Message;
-using SpaceInvader.Module.enemy;
 
 namespace SpaceInvader.Module.Bullet
 {
@@ -14,6 +13,11 @@ namespace SpaceInvader.Module.Bullet
     {
         EnemyController enemyControl;
 
+        //public override IEnumerator Finalize()
+        //{
+        //    yield return base.Finalize();
+        //    _model.SetPosition(enemyControl.Model.Position);
+        //}
         public void InitBulletPool()
         {
             BulletModel instanceModel = new BulletModel();
@@ -24,8 +28,8 @@ namespace SpaceInvader.Module.Bullet
             BulletController instance = new BulletController();
 
 
-            InjectDependencies(instance);
-            instance.Init(instanceModel, instanceView);
+            //InjectDependencies(instance);
+            //instance.Init(instanceModel, instanceView);
 
             bullet.SetActive(false);
         }
@@ -51,11 +55,6 @@ namespace SpaceInvader.Module.Bullet
             }
         }
 
-        internal void SetView(object bulletPoolView)
-        {
-            throw new NotImplementedException();
-        }
-
         public GameObject PoolBullet()
         {
             for (int i = 0; i < _model.maxBullet; i++)
@@ -72,7 +71,7 @@ namespace SpaceInvader.Module.Bullet
 
         private void SpawnBullet(GameObject bullet)
         {
-            bullet.transform.position = enemyControl.Model.Position;
+            //bullet.transform.position = enemyControl.Model.Position;
             _model.AddBullet(bullet);
             bullet.SetActive(true);
         }

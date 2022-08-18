@@ -4,7 +4,7 @@ using UnityEngine;
 using Agate.MVC.Base;
 using SpaceInvader.Message;
 
-namespace SpaceInvader.Module.enemy
+namespace SpaceInvader.Module.Enemy
 {
     public class EnemyConnector : BaseConnector
     {

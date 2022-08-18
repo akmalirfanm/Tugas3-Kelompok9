@@ -12,6 +12,13 @@ namespace SpaceInvader.Module.Bullet
 
         public int amountToPool { get; set; }
         public int maxBullet { get; set; } = 5;
+        
+        public Vector3 Position { get; private set; }
+        public void SetPosition(Vector3 position)
+        {
+            Position = position;
+            SetDataAsDirty();
+        }
 
         public List<GameObject> pooledBullets { get; set; } = new List<GameObject>();
 

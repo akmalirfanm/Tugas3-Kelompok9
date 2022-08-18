@@ -5,7 +5,7 @@ using Agate.MVC.Core;
 using Agate.MVC.Base;
 using UnityEngine.Events;
 
-namespace SpaceInvader.Module.enemy { 
+namespace SpaceInvader.Module.Enemy { 
 public class EnemyView : ObjectView<IEnemyModel>
     {
         public float originalX { get; private set; }

@@ -13,6 +13,7 @@ namespace SpaceInvader.Module.PlayerController
         //private UnityAction _move ;
         private Vector3 direction;
         private float speed;
+        private float maxright, maxleft;
 
         //public void SetCallbacks(UnityAction Move,int i)
         //{
@@ -34,12 +35,14 @@ namespace SpaceInvader.Module.PlayerController
             GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/player1")[0];
             direction = model.Direction;
             speed = model.speed;
+            maxright = model.maxright;
+            maxleft = model.maxleft;
         }
 
         private void Update()
         {
             float _x = transform.position.x + direction.x;
-            if (_x <= -9.3 || _x >= 9.3) return;
+            if (_x <= maxleft|| _x >= maxright) return;
             transform.Translate(direction * Time.deltaTime * speed);
 
 
