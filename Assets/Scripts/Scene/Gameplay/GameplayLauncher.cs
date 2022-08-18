@@ -19,7 +19,8 @@ namespace Kelompok9.SpaceInvader.Gameplay
         private EnemySpawnerController _enemySpawnerController;
         private BulletPoolController _bulletPoolController;
         private AudioController _audioController;
-        //private EnemyController _enemycontroller;
+        private EnemyController _enemycontroller;
+        private BulletController _bulletcontroller;
         public override string SceneName => "Gameplay";
         protected override IConnector[] GetSceneConnectors()
         {
@@ -40,7 +41,8 @@ namespace Kelompok9.SpaceInvader.Gameplay
                 new BulletPoolController(),
                 new AudioController(),
                 new EnemySpawnerController(),
-                //new EnemyController()
+                new EnemyController(),
+                new BulletController()
             };
         }
 
@@ -51,7 +53,8 @@ namespace Kelompok9.SpaceInvader.Gameplay
             _audioController.SetView(_view.AudioView);
             _bulletPoolController.SetView(_view.BulletPoolView);
             _enemySpawnerController.SetView(_view.EnemySpawnerView);
-            //_enemycontroller.SetView(_view.EnemyView);
+            _enemycontroller.SetView(_view.EnemyView);
+            _bulletcontroller.SetView(_view.BulletView);
             yield return null;
 
         }

@@ -8,6 +8,7 @@ namespace SpaceInvader.Module.Bullet
 {
     public class BulletPoolView : ObjectView<IBulletPoolModel>
     {
+        float waktu = 5;
         protected override void InitRenderModel(IBulletPoolModel model)
         {
 
@@ -20,8 +21,20 @@ namespace SpaceInvader.Module.Bullet
 
         public GameObject SpawnBullet(GameObject gameObject)
         {
-            GameObject enemy = Instantiate(gameObject);
+            GameObject enemy = Instantiate(gameObject,transform);
+            enemy.AddComponent<BoxCollider2D>();
             return enemy;
         }
+
+        public void Update()
+        {
+            if (waktu >= 0)
+            {
+                waktu -= Time.deltaTime;
+            }
+            else
+            { }
+        }
+
     }
 }

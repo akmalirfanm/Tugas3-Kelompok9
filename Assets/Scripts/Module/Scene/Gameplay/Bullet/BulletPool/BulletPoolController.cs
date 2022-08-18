@@ -13,23 +13,23 @@ namespace SpaceInvader.Module.Bullet
     {
         EnemyController enemyControl;
 
-        //public override IEnumerator Finalize()
-        //{
-        //    yield return base.Finalize();
-        //    _model.SetPosition(enemyControl.Model.Position);
-        //}
+        public override IEnumerator Finalize()
+        {
+            yield return base.Finalize();
+            _model.SetPosition(enemyControl.Model.Position);
+        }
         public void InitBulletPool()
         {
             BulletModel instanceModel = new BulletModel();
             GameObject bullet = _view.SpawnBullet(_model.enemyScriptableObject.enemyObject);
             SpawnBullet(bullet);
 
-            BulletView instanceView = bullet.GetComponent<BulletView>();
+            BulletView instanceView = bullet.AddComponent<BulletView>();
             BulletController instance = new BulletController();
 
 
-            //InjectDependencies(instance);
-            //instance.Init(instanceModel, instanceView);
+            InjectDependencies(instance);
+            instance.Init(instanceModel, instanceView);
 
             bullet.SetActive(false);
         }
@@ -40,9 +40,11 @@ namespace SpaceInvader.Module.Bullet
             InitBulletPool();
         }
 
+
         public void InitPoolBullet(StartPlayMessage message)
         {
             SpawnBulletPool();
+           // _view.SetCallbacks(SpawnBullet);
         }
 
         public void SpawnBulletPool()
@@ -71,7 +73,7 @@ namespace SpaceInvader.Module.Bullet
 
         private void SpawnBullet(GameObject bullet)
         {
-            //bullet.transform.position = enemyControl.Model.Position;
+            bullet.transform.position = enemyControl.Model.Position;
             _model.AddBullet(bullet);
             bullet.SetActive(true);
         }

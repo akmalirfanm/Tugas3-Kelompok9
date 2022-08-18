@@ -24,8 +24,11 @@ namespace Kelompok9.SpaceInvader.Gameplay
 		[SerializeField] AudioView audioView;
 		public AudioView AudioView => audioView;
 
-		//[SerializeField] EnemyView enemyView;
-		//public EnemyView EnemyView => enemyView;
+		[SerializeField] EnemyView enemyView;
+		public EnemyView EnemyView => enemyView;
+		
+		[SerializeField] BulletView bulletView;
+		public BulletView BulletView => bulletView;
 
 	}
 }
