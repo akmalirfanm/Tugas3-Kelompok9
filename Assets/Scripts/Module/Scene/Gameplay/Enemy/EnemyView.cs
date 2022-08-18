@@ -5,32 +5,59 @@ using Agate.MVC.Core;
 using Agate.MVC.Base;
 using UnityEngine.Events;
 
-namespace SpaceInvader.Module.enemy { 
+namespace SpaceInvader.Module.Enemy { 
 public class EnemyView : ObjectView<IEnemyModel>
     {
-        private UnityAction _onMovePosition;
-        private UnityAction _onDespawnObstacle;
+        public float originalX { get; private set; }
+        float walkDirection = 1f;
+        private UnityAction _onMove;
+        public bool canShoot;
+        public LayerMask layer;
 
-        public void SetCallbacks(UnityAction onMovePosition, UnityAction onDespawnObstacle)
+        public void SetCallback(UnityAction OnMove)
         {
-            _onMovePosition = onMovePosition;
-            _onDespawnObstacle = onDespawnObstacle;
+            _onMove = OnMove;
+
         }
 
         protected override void InitRenderModel(IEnemyModel model)
         {
-            transform.position = _model.Position;
+
         }
 
         protected override void UpdateRenderModel(IEnemyModel model)
         {
-            transform.position = _model.Position;
+
+        }
+
+        private void Start()
+        {
+            originalX = transform.position.x;
         }
 
         private void Update()
         {
-            _onMovePosition?.Invoke();
-            _onDespawnObstacle?.Invoke();
+            MoveEnemy();
+        }
+
+        public void MoveEnemy()
+        {
+            Vector2 walkAmount = new Vector2(walkDirection * 0.5f * Time.deltaTime, 0);
+
+            if (walkDirection > 0.0f && transform.position.x >= originalX + 0.5)
+            {
+                walkDirection = -1.0f;
+                transform.position = new Vector3(transform.position.x,
+                    transform.position.y - 1, transform.position.z);
+            }
+            else if (walkDirection < 0.0f && transform.transform.position.x <= originalX - 0.5)
+            {
+                walkDirection = 1.0f;
+                transform.position = new Vector3(transform.position.x,
+                    transform.position.y - 1, transform.position.z);
+            }
+
+            transform.Translate(walkAmount);
         }
     }
 }

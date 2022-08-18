@@ -18,6 +18,8 @@ namespace SpaceInvader.Module.PlayerController
         public Vector3 DespawnPosition { get; private set; } = new Vector3(-.2f, 0.5f, 10f);
         public float speed { get; private set; } = 10f;
         public Vector3 Direction { get; private set; }
+        public float maxright { get; private set; } = 9.3f;
+        public float maxleft { get; private set; } = -9.3f;
 
         private Queue<GameObject> ObstaclePool = new Queue<GameObject>();
 

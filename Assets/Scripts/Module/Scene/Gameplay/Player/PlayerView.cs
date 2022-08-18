@@ -13,6 +13,7 @@ namespace SpaceInvader.Module.PlayerController
         //private UnityAction _move ;
         private Vector3 direction;
         private float speed;
+        private float maxright, maxleft;
 
         //public void SetCallbacks(UnityAction Move,int i)
         //{
@@ -34,19 +35,26 @@ namespace SpaceInvader.Module.PlayerController
             GetComponent<SpriteRenderer>().sprite = Resources.LoadAll<Sprite>($"Sprites/player1")[0];
             direction = model.Direction;
             speed = model.speed;
+            maxright = model.maxright;
+            maxleft = model.maxleft;
         }
 
         private void Update()
         {
-            if (transform.position.x <= 7.486 && transform.position.x >= -7.486)
-            {
+            float _x = transform.position.x + direction.x;
+            if (_x <= maxleft|| _x >= maxright) return;
+            transform.Translate(direction * Time.deltaTime * speed);
 
-                transform.Translate(direction * Time.deltaTime * speed);
-            }
-            else if (transform.position.x <= -6.4)
-            { transform.position = new Vector3(-7.485f, transform.position.y); }
-            else if (transform.position.x >= 6.4 )
-            { transform.position = new Vector3(7.485f, transform.position.y); }
+
+            //if (transform.position.x <= 7.486 && transform.position.x >= -7.486)
+            //{
+
+            //    transform.Translate(direction * Time.deltaTime * speed);
+            //}
+            //else if (transform.position.x <= -6.4)
+            //{ transform.position = new Vector3(-7.485f, transform.position.y); }
+            //else if (transform.position.x >= 6.4 )
+            //{ transform.position = new Vector3(7.485f, transform.position.y); }
 
         }
 
