@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine;
 using Agate.MVC.Base;
 using Agate.MVC.Core;
 using SpaceInvader.Module.Enemy;
@@ -22,14 +23,18 @@ namespace SpaceInvader.Module.Bullet
         {
             BulletModel instanceModel = new BulletModel();
             GameObject bullet = _view.SpawnBullet(_model.enemyScriptableObject.enemyObject);
+            bullet.AddComponent<BoxCollider2D>();
+            bullet.AddComponent<BulletView>();
+            bullet.transform.localScale = bullet.transform.localScale * .1f;
             SpawnBullet(bullet);
 
-            BulletView instanceView = bullet.AddComponent<BulletView>();
+            //BulletView instanceView = bullet.AddComponent<BulletView>();
+
             BulletController instance = new BulletController();
 
 
-            InjectDependencies(instance);
-            instance.Init(instanceModel, instanceView);
+            //InjectDependencies(instance);
+            //instance.Init(instanceModel, instanceView);
 
             bullet.SetActive(false);
         }
@@ -44,7 +49,7 @@ namespace SpaceInvader.Module.Bullet
         public void InitPoolBullet(StartPlayMessage message)
         {
             SpawnBulletPool();
-           // _view.SetCallbacks(SpawnBullet);
+
         }
 
         public void SpawnBulletPool()
@@ -70,6 +75,8 @@ namespace SpaceInvader.Module.Bullet
             }
             return null;
         }
+
+
 
         private void SpawnBullet(GameObject bullet)
         {

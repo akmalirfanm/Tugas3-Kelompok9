@@ -28,10 +28,11 @@ namespace SpaceInvader.Module.Bullet
             transform.Translate(Vector2.down * Time.deltaTime);
         }
 
-        private void OnCollisionEnter2D(Collision2D other)
+        private void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
+                gameObject.SetActive(false);
                 Debug.Log("player hit");
             }
         }
