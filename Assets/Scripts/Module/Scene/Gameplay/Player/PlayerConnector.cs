@@ -1,21 +1,30 @@
 using Agate.MVC.Base;
 using SpaceInvader.Message;
+using SpaceInvader.Module.Input;
+using System;
+using UnityEngine;
 
 namespace SpaceInvader.Module.PlayerController
 {
     public class PlayerConnector : BaseConnector
     {
+        public PlayerController _playerController;
 
         protected override void Connect()
         {
+             Subscribe <PlayerMoveMessage>(OnControllerMove);
         }
 
         protected override void Disconnect()
         {
-            throw new System.NotImplementedException();
+            Unsubscribe<PlayerMoveMessage>(OnControllerMove);
         }
 
-        // Start is called before the first frame update
+        void OnControllerMove(PlayerMoveMessage message)
+        {
+            _playerController.Onmove(message.X);
+        }
+
 
     }
 }

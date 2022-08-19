@@ -7,7 +7,11 @@ namespace SpaceInvader.Module.PlayerController
 {
     public interface IPlayerModel : IBaseModel
     {
-        public Vector2 Position { get; }
+        public Vector3 Position { get; }
+        public Vector3 Direction { get; }
+        public float speed { get; }
+        public float maxright { get; }
+        public float maxleft { get; }
 
 
     }

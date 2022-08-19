@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+<<<<<<<< HEAD:Assets/Scripts/Module/Scene/Gameplay/Message/AddScoreMessage.cs.meta
+guid: 17d905f63612e9c4698d44aa73f6ddc7
+========
+guid: 75a243d9aa3a9bb43905344cf02e5d09
+>>>>>>>> features/enemymovement:Assets/Scripts/Module/Scene/Gameplay/Message/EnemyHitMessage.cs.meta
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences: []
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

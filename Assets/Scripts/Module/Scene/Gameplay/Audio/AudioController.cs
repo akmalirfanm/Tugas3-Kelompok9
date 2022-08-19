@@ -1,18 +1,40 @@
 using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+using Agate.MVC.Base;
+using SpaceInvader.Message;
 
-public class BGMController : MonoBehaviour
+namespace SpaceInvader.Module.Audio
 {
-    // Start is called before the first frame update
-    void Start()
+    public class AudioController : ObjectController<AudioController, AudioModel, IAudioModel, AudioView>
     {
-        
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //public void OnMoveInsect(MoveInsectMessage message)
+        //{
+        //    _view.PlayBirdWingsSfx();
+        //}
+
+        //public void OnAddScore(AddScoreMessage message)
+        //{
+        //    _view.PlayAddScoreSfx();
+        //}
+
+        public void OnGameOver(GameOverMessage message)
+        {
+            _view.PlayGameOverSfx();
+        }
+
+        public void OnEnemyHit(EnemyHitMessage message)
+        {
+            _view.enemyHitSfx();
+        }
+
+        public void OnPlayerShoot(PlayerShootMessage message)
+        {
+            _view.playerShootSfx();
+        }
+
+        public void OnPowerUp(PowerUpMessage message)
+        {
+            _view.powerupSfx();
+        }
     }
 }
