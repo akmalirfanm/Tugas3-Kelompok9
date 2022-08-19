@@ -15,6 +15,13 @@ namespace SpaceInvader.Module.PlayerController
         private float speed;
         private float maxright, maxleft;
 
+        private UnityAction _onTriggerWithBulletEnemy;
+
+        public void SetCallbacks(UnityAction onTriggerWithBulletEnemy)
+        {
+            _onTriggerWithBulletEnemy = onTriggerWithBulletEnemy;
+        }
+
         //public void SetCallbacks(UnityAction Move,int i)
         //{
         //    _move = Move;

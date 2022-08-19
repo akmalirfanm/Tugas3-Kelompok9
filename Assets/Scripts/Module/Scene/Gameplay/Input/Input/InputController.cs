@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 using SpaceInvader.Message;
 using UnityEngine.EventSystems;
 using UnityEngine;
+using SpaceInvader.Module.Message;
 
 namespace SpaceInvader.Module.Input
 {
@@ -83,6 +84,7 @@ namespace SpaceInvader.Module.Input
                 _inputActionsManager.Game.Tembak.Enable();
                 Publish<StartPlayMessage>(new StartPlayMessage());
                 Publish<PlayerShootMessage>(new PlayerShootMessage());
+                Publish<PlayerBulletShootMessage>(new PlayerBulletShootMessage());
                 Debug.Log("bamm");
                 
             }

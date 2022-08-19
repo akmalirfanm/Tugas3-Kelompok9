@@ -4,6 +4,7 @@ using UnityEngine;
 using Agate.MVC.Base;
 using SpaceInvader.Message;
 using System;
+using SpaceInvader.Module.Message;
 
 namespace SpaceInvader.Module.PlayerController
 {
@@ -17,7 +18,23 @@ namespace SpaceInvader.Module.PlayerController
             _model.Setdirection(dir);
         }
 
-       
+        public void OnShoot()
+        {
+            Vector2 pos = _view.transform.position;
+
+            Publish<SpawnBulletMessage>(new SpawnBulletMessage(pos));
+        }
+
+        public override void SetView(PlayerView view)
+        {
+            base.SetView(view);
+            view.SetCallbacks(OnCollideWithEnemyBullet);
+        }
+
+        private void OnCollideWithEnemyBullet()
+        {
+            Debug.Log("Tertembak");
+        }
 
         /*public override void SetView(PlayerView view)
         {

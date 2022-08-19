@@ -21,6 +21,8 @@ namespace SpaceInvader.Module.PlayerController
         public float maxright { get; private set; } = 9.3f;
         public float maxleft { get; private set; } = -9.3f;
 
+        public float health { get; private set; } = 3;
+
         private Queue<GameObject> ObstaclePool = new Queue<GameObject>();
 
         public void SetIsPlaying(bool isPlaying)
